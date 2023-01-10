@@ -56,11 +56,20 @@
 
   &__controls {
     display: flex;
-    gap: 36px;
+    gap: calc(36px - .5rem);
     align-items: center;
+
   }
 
   &__control {
     cursor: pointer;
+    padding: .5rem;
+
+    transition: background-color .2s ease-out;
+    border-radius: 50%;
+
+    &:hover {
+      background-color: #eee;
+    }
   }
 }

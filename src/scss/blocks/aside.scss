@@ -3,7 +3,7 @@
   max-width: 370px;
   width: 100%;
   flex: 0 0 370px;
-  
+
 
   &__search {
     height: 72px;
@@ -26,9 +26,10 @@
 
   &__search-input {
     border: none;
+    padding: .3em .5em;
+    width: 100%;
 
     transition: background-color .2s ease-out;
-    padding: .3em .5em;
 
     &::placeholder {
       color: #777777;
@@ -45,15 +46,21 @@
   &__collections {
     display: flex;
     flex-direction: column;
-    gap: 24px;
 
-    padding: 32px 60px 32px 32px;
+    padding: 32px 0 32px 0;
   }
 }
 
 
 .collections-item {
+  padding: 12px 60px 12px 32px;
   font-weight: 400;
   text-decoration: none;
   color: #333333;
+
+  transition: background-color .2s ease-out;
+
+  &:hover {
+    background-color: #f5f5f5;
+  }
 }

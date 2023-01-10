@@ -15,9 +15,11 @@
     display: flex;
     flex-wrap: nowrap;
     gap: 24px;
-    align-items: flex-end;
+    // align-items: flex-end;
 
     overflow-x: auto;
+
+    scroll-behavior: smooth;
 
 
   }
@@ -54,10 +56,21 @@
 .brand {
   text-decoration: none;
   min-width: 130px;
+  padding-top: 1rem;
 
+  display: flex;
+  flex-direction: column;
+
+
+  transition: background-color .2s ease-out;
+
+  &:hover {
+    background-color: #eee;
+  }
 
   &__image {
     margin: 0 auto;
+    margin-top: auto;
     margin-bottom: 6px;
     width: 55px;
   }
