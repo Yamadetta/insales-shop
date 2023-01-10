@@ -1,0 +1,66 @@
+.header {
+  padding: 0 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 90px;
+
+  border-bottom: 1px solid #EFEFEF;
+
+  font-size: 1rem;
+
+  &__content {
+    display: flex;
+    gap: 50px;
+  }
+
+  &__logo {}
+
+  &__contacts {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+  }
+
+  &__phone-link {
+    color: #333;
+    font-family: 'Golos';
+    font-weight: 600;
+
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  &__links {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    font-weight: 500;
+
+
+  }
+
+  &__link {
+    font-size: 1rem;
+    text-decoration: none;
+    font-weight: 400;
+    color: #777777;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  &__controls {
+    display: flex;
+    gap: 36px;
+    align-items: center;
+  }
+
+  &__control {
+    cursor: pointer;
+  }
+}
