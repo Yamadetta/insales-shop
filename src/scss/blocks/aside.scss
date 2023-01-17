@@ -1,13 +1,60 @@
 .aside {
-  flex: 0 0 370px;
-  width: 100%;
-  max-width: 370px;
+  width: 20%;
+  color: #333;
   border-right: 1px solid #efefef;
+
+  @media (max-width: 1200px) {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+    width: 100%;
+    height: 100vh;
+    padding: 16px 0 16px 16px;
+    background-color: #fff;
+    transform: translateX(-100%);
+    transition: transform 0.2s ease-out;
+  }
+
+  &__header,
+  &__controls,
+  &__contacts,
+  &__links {
+    @media (min-width: 1201px) {
+      display: none;
+    }
+  }
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 26px;
+    padding: 0 16px 0 0;
+  }
+
+  &__title {
+    font-size: 1.3rem;
+  }
+
+  &__body {
+    @media (max-width: 1200px) {
+      height: calc(100% - 56px);
+      padding: 0 16px 0 0;
+      overflow-y: scroll;
+    }
+  }
 
   &__search {
     height: 72px;
+    margin: 0 0 32px;
     padding: 25px 25px 25px 35px;
     border-bottom: 1px solid #efefef;
+
+    @media (max-width: 1200px) {
+      display: none;
+    }
   }
 
   &__search-form {
@@ -39,21 +86,95 @@
     }
   }
 
+  &__controls {
+    display: flex;
+    gap: 40px;
+    margin: 0 0 25px;
+  }
+
+  &__control {
+    display: flex;
+    gap: 14px;
+    align-items: center;
+  }
+
+  &__contacts {
+    display: flex;
+    gap: 24px;
+    margin: 0 0 24px;
+  }
+
+  &__phone-link {
+    color: #333;
+    text-decoration: none;
+  }
+
   &__collections {
     display: flex;
     flex-direction: column;
-    padding: 32px 0;
+    margin: 0 0 32px;
+  }
+
+  &__link {
+    display: block;
+    color: #777;
+    text-decoration: none;
+
+    &:not(:last-child) {
+      margin: 0 0 24px;
+    }
   }
 }
 
 .collections-item {
   padding: 12px 60px 12px 32px;
-  color: #333;
-  font-weight: 400;
-  text-decoration: none;
   transition: background-color 0.2s ease-out;
 
-  &:hover {
-    background-color: var(--background-hover);
+  a {
+    color: #333;
+    font-weight: 400;
+    text-decoration: none;
+  }
+
+  img {
+    display: none;
+  }
+
+  .subcollections {
+    display: none;
+  }
+
+  &.active {
+    .subcollections {
+      position: fixed;
+      top: 0;
+      left: 0;
+      display: block;
+      width: 100%;
+      background-color: #fff;
+    }
+  }
+
+  @media (min-width: 1201px) {
+    &:hover {
+      background-color: var(--background-hover);
+    }
+  }
+
+  @media (max-width: 1200px) {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 10px 16px 0;
+    border-top: 1px solid #efefef;
+
+    &:last-child {
+      border-bottom: 1px solid #efefef;
+    }
+
+    img {
+      display: block;
+    }
   }
 }

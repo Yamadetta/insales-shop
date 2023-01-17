@@ -1,3 +1,5 @@
+/* stylelint-disable no-descending-specificity */
+/* stylelint-disable selector-class-pattern */
 .special-products {
   color: #333;
 
@@ -8,23 +10,22 @@
   }
 
   &__items {
-    display: grid;
-    grid-auto-flow: column;
-    grid-template-columns: repeat(auto-fit, 240px);
+    display: flex;
+    gap: clamp(32px, 3vw, 50px);
     padding: 0 0 1rem;
     overflow-x: auto;
     overflow-y: hidden;
-    column-gap: 50px;
   }
 }
 
 .product {
   display: grid;
+  flex-shrink: 0;
   grid-auto-flow: row;
 
-  /* Изображение auto, название занимает всё доступное пространство, кнопка min40px,
-      Колонка одна на всю ширину */
+  /* Изображение auto, название занимает всё доступное пространство, кнопка min40px, Колонка одна на всю ширину */
   grid-template: auto 1fr minmax(40px, auto) / 1fr;
+  width: clamp(160px, 15.7vw, 240px);
 
   &__image {
     position: relative;
@@ -57,7 +58,7 @@
   }
 
   &__price-cur {
-    font-weight: 500;
+    font-weight: 600;
     font-size: 1.3rem;
   }
 
@@ -79,6 +80,10 @@
 
       .cart-counter {
         max-width: 240px;
+
+        @media (max-width: 1200px) {
+          display: flex;
+        }
 
         &,
         & input {
@@ -103,10 +108,14 @@
   display: flex;
   align-items: center;
 
+  @media (max-width: 1200px) {
+    display: none;
+  }
+
   &__button {
     padding: 0 0.5em;
     color: #acacac;
-    font-size: 1.7rem;
+    font-size: clamp(1.4rem, 1.5vw, 1.7rem);
     border-radius: 4px;
     transition: background-color 0.2s linear;
 
@@ -117,20 +126,24 @@
   }
 
   &__quantity {
+    width: 2.5vw;
     max-width: 40px;
     height: 100%;
-    font-size: 1.2rem;
+    font-size: clamp(1rem, 1.4vw, 1.2rem);
     line-height: 1;
     text-align: center;
     border: none;
     border-radius: 4px;
-    transition: background-color 0.2s linear;
 
     &:focus,
     &:focus-visible,
     &:hover {
       background-color: var(--background-hover);
       outline: none;
+    }
+
+    @media (min-width: 1201px) {
+      transition: background-color 0.2s linear, max-width 0.2s ease-out;
     }
   }
 }

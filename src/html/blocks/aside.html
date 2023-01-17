@@ -1,23 +1,92 @@
 <aside class="aside">
-  <div class="aside__search">
-    <form action="/search" method="get" class="aside__search-form">
-      <button type="button" class="aside__search-btn">
-        <img src="@img/search.svg" alt="search-icon">
-      </button>
-      <input type="text" autocomplete="off" class="aside__search-input" name="" value="" placeholder="Что ищем?">
-    </form>
+  <div class="aside__header">
+    <h3 class="aside__title">Меню</h3>
+    <div class="aside__close-button">
+      <img src="@img/close-icon.svg" id="close-menu-burger-btn" alt="close-icon">
+    </div>
   </div>
-  <div class="aside__collections">
-    <a href="#" class="collections-item">Масла и автохимия</a>
-    <a href="#" class="collections-item">Шины и диски</a>
-    <a href="#" class="collections-item">Аккумуляторы и аксессуары</a>
-    <a href="#" class="collections-item">Уход за автомобилем</a>
-    <a href="#" class="collections-item">Автоаксессуары и принадлежности</a>
-    <a href="#" class="collections-item">Инструменты и оборудование</a>
-    <a href="#" class="collections-item">Автозвук</a>
-    <a href="#" class="collections-item">Электроника для авто</a>
-    <a href="#" class="collections-item">Автозапчасти</a>
-    <a href="#" class="collections-item">Товары для мототехники, мотоэкипировка</a>
-    <a href="#" class="collections-item">Гараж и автосервис</a>
+
+  <div class="aside__body">
+    <div class="aside__search">
+      <form action="/search" method="get" class="aside__search-form">
+        <button type="submit" class="aside__search-btn">
+          <img src="@img/search.svg" alt="search-icon">
+        </button>
+        <input type="text" autocomplete="off" class="aside__search-input" name="" value="" placeholder="Что ищем?">
+      </form>
+    </div>
+
+    <div class="aside__controls">
+      <a class="aside__favorites aside__control">
+        <img src="@img/favorites.svg" alt="favorites-icon">
+        <span>Избранное</span>
+      </a>
+      <a class="aside__compare aside__control">
+        <img src="@img/compare.svg" alt="compare-icon">
+        <span>Сравнение</span>
+      </a>
+    </div>
+
+
+    <div class="aside__contacts">
+      <a class="aside__phone-link" href="tel:+74956498314">+7 495 649-83-14</a>
+      <a class="aside__phone-link" href="tel:+78005551061">+7 800 555-10-61</a>
+    </div>
+
+    <div class="aside__collections">
+      <script>
+        (() => {
+          let collections = [
+            { title: "Масла и автохимия" },
+            { title: "Шины и диски" },
+            { title: "Аккумуляторы и аксессуары" },
+            { title: "Уход за автомобилем" },
+            { title: "Автоаксессуары и принадлежности" },
+            { title: "Инструменты и оборудование" },
+            { title: "Автозвук" },
+            { title: "Электроника для авто" },
+            { title: "Автозапчасти" },
+            { title: "Товары для мототехники, мотоэкипировка" },
+            { title: "Гараж и автосервис" },
+          ];
+          let result = '';
+
+          for (const collection of collections) {
+            let subcollections = `<div class="subcollections">`;
+
+            for (const subcollection of collections) {
+              let template = /* html */ `
+                <a href="#" class="collections-item"><span>${subcollection.title}</span></a>`;
+              subcollections += template;
+            }
+            subcollections += `</div>`;
+
+            // console.log(subcollections);
+
+            let template = /* html */ `
+              <div href="#" class="collections-item">
+                <a href="#">${collection.title}</a>
+                <img src="@img/collection-arrow.svg" alt="open-more">
+                ${subcollections}
+              </div>`;
+            console.log(template);
+            result += template;
+          }
+
+          document.querySelector('.aside__collections').innerHTML = result;
+          // document.querySelector('.collections-item').classList.add('active');
+
+        })();
+      </script>
+    </div>
+
+    <div class="aside__links">
+      <a href="#" class="aside__link">Акции</a>
+      <a href="#" class="aside__link">Доставка и самовывоз</a>
+      <a href="#" class="aside__link">Наши услуги</a>
+      <a href="#" class="aside__link">Статьи</a>
+      <a href="#" class="aside__link">Вакансии</a>
+    </div>
   </div>
+
 </aside>
