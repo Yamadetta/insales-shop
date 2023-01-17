@@ -1,18 +1,28 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 @@include('html/head.html',{
-"title": "Center Logistic"
+"title": "insales shop"
 })
 
 <body class="">
   <div class="page">
     @@include('html/blocks/header.html', {})
     <div class="page__content">
-    @@include('html/blocks/aside.html', {})
-    @@include('html/blocks/main.html', {})
+      @@include('html/blocks/aside.html', {})
+
+      <main class="main">
+        @@include('html/blocks/brand-carousel.html', {})
+        @@include('html/blocks/banner.html', {})
+        @@include('html/blocks/special-products.html',{
+        "title": "Хиты продаж", "id": "special-products-1"})
+        @@include('html/blocks/special-products.html',{
+        "title": "Рекомендуем вам", "id": "special-products-2"})
+        @@include('html/blocks/benefits-list.html', {})
+
+      </main>
 
     </div>
-    
+
   </div>
   <script src="js/app.min.js"></script>
 </body>

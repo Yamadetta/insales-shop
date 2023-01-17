@@ -1,24 +1,9 @@
-@import 'clear';
-@import 'fonts';
-
-html {
-  font-size: 14px;
-  font-family: Golos;
-  color: #333333;
-}
-
-.page {
-  max-width: 1920px;
-  width: 100%;
-  margin: 0 auto;
-
-  border: 1px solid #EFEFEF;
-
-  &__content {
-    display: flex;
-  }
-}
-
-@import 'blocks/header';
-@import 'blocks/aside';
-@import 'blocks/main';
+@import "clear";
+@import "fonts";
+@import "main";
+@import "blocks/header";
+@import "blocks/aside";
+@import "blocks/brand-carousel";
+@import "blocks/banner";
+@import "blocks/special-products";
+@import "blocks/benefits-list";

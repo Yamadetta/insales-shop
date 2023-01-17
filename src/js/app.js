@@ -10,3 +10,9 @@ if (rightArrow && content) {
     content.scrollLeft = content.offsetWidth / 2;
   });
 }
+
+document.querySelectorAll('.product__buy-button').forEach(function (item, i, arr) {
+  item.addEventListener('click', function () {
+    item.parentNode.classList.add('is-add-cart');
+  });
+});

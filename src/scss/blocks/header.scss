@@ -1,13 +1,11 @@
 .header {
-  padding: 0 40px;
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
   height: 90px;
-
-  border-bottom: 1px solid #EFEFEF;
-
+  padding: 0 40px;
   font-size: 1rem;
+  border-bottom: 1px solid #efefef;
 
   &__content {
     display: flex;
@@ -18,15 +16,14 @@
 
   &__contacts {
     display: flex;
-    align-items: center;
     gap: 24px;
+    align-items: center;
   }
 
   &__phone-link {
     color: #333;
-    font-family: 'Golos';
     font-weight: 600;
-
+    font-family: Golos, Helvetica, sans-serif;
     text-decoration: none;
 
     &:hover {
@@ -36,18 +33,16 @@
 
   &__links {
     display: flex;
-    align-items: center;
     gap: 16px;
+    align-items: center;
     font-weight: 500;
-
-
   }
 
   &__link {
+    color: #777;
+    font-weight: 400;
     font-size: 1rem;
     text-decoration: none;
-    font-weight: 400;
-    color: #777777;
 
     &:hover {
       text-decoration: underline;
@@ -56,20 +51,18 @@
 
   &__controls {
     display: flex;
-    gap: calc(36px - .5rem);
+    gap: calc(36px - 0.5rem);
     align-items: center;
-
   }
 
   &__control {
-    cursor: pointer;
-    padding: .5rem;
-
-    transition: background-color .2s ease-out;
+    padding: 0.5rem;
     border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.2s ease-out;
 
     &:hover {
-      background-color: #eee;
+      background-color: var(--background-hover);
     }
   }
 }
