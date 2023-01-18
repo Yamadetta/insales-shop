@@ -14,10 +14,14 @@
     padding: 0 0 75%;
     overflow: hidden;
     border-radius: 4px;
-    transition: box-shadow 0.2s ease-out;
+    transition: box-shadow 0.2s ease-out, transform 0.2s ease-out;
 
     &:hover {
-      box-shadow: 1px 3px 6px #d4d4d4;
+      @media (min-width: 1201px) {
+        z-index: 1;
+        box-shadow: 1px 3px 6px #d4d4d4;
+        transform: scale(1.03);
+      }
     }
 
     img {

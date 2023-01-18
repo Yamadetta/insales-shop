@@ -6,16 +6,6 @@ html {
   font-family: Golos, Helvetica, sans-serif;
 }
 
-body {
-  &.menu-opened {
-    overflow: hidden;
-
-    .aside {
-      transform: translateX(0);
-    }
-  }
-}
-
 .page {
   width: 100%;
   max-width: 1920px;
@@ -45,7 +35,7 @@ section {
 @media (min-width: 1201px) {
   ::-webkit-scrollbar {
     width: 14px;
-    height: 14px;
+    height: 6px;
   }
 
   ::-webkit-scrollbar-track {

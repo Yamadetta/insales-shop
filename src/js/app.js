@@ -45,8 +45,10 @@ document.querySelector('#close-menu-burger-btn').addEventListener('click', funct
   document.body.classList.remove('menu-opened')
 });
 
-document.querySelector('#header-search-btn').addEventListener('click', function () {
-  document.body.classList.add('search-opened');
+document.querySelectorAll('.js-search-btn').forEach(function (item, i, arr) {
+  item.addEventListener('click', function () {
+    document.body.classList.add('search-opened');
+  });
 });
 
 
@@ -54,4 +56,16 @@ document.querySelectorAll('.js-close-mobile-search').forEach(function (item, i, 
   item.addEventListener('click', function () {
     document.body.classList.remove('search-opened');
   });
+});
+
+
+document.querySelector('.aside__collections').addEventListener('click', function (e) {
+  console.log(e.target);
+  if (e.target.className.includes('collections-item') && e.target.parentNode.className.includes('aside__collections')) {
+    e.target.classList.add('active');
+  } else if (
+    e.target.className.includes('subcollections__back-btn-icon')
+  ) {
+    e.target.parentNode.parentNode.parentNode.parentNode.classList.remove('active');
+  }
 });

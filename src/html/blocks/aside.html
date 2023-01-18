@@ -49,19 +49,42 @@
             { title: "Товары для мототехники, мотоэкипировка" },
             { title: "Гараж и автосервис" },
           ];
-          let result = '';
+          
+          let
+            result = '',
+            subcollectionsLast = '<div class="subcollections">';
+
+          for (const subcollection of collections) {
+            let template = /* html */ `
+                <div class="collections-item"><a href="#">${subcollection.title}</a></div>`;
+            subcollectionsLast += template;
+          }
+          subcollectionsLast += `</div>`;
 
           for (const collection of collections) {
-            let subcollections = `<div class="subcollections">`;
+            let subcollections = /* html */ `<div class="subcollections">
+              <nav class="subcollections__navigation">
+                <button class="subcollections__back-btn"><img class="subcollections__back-btn-icon" src="@img/arrow-left.svg" alt="back button icon"></button>
+                <button type="button" class="subcollections__search-btn js-search-btn">
+                  <img src="@img/search.svg" alt="search-icon" />
+                </button>
+              </nav>
+
+              <div class="subcollections__body">
+                <div class="subcollections__title">${collection.title}</div>
+                <div class="subcollections__more">
+                  <a href="#">Смотреть все товары</a>
+                  <img src="@img/collection-arrow.svg" alt="right-arrow-icon">
+                </div>`;
 
             for (const subcollection of collections) {
               let template = /* html */ `
-                <a href="#" class="collections-item"><span>${subcollection.title}</span></a>`;
+                <div class="collections-item"><a href="#">${subcollection.title}</a>${subcollectionsLast}</div>`;
               subcollections += template;
             }
-            subcollections += `</div>`;
 
-            // console.log(subcollections);
+            subcollections += /* html */ `</div></div>`;
+
 
             let template = /* html */ `
               <div href="#" class="collections-item">
@@ -69,7 +92,6 @@
                 <img src="@img/collection-arrow.svg" alt="open-more">
                 ${subcollections}
               </div>`;
-            console.log(template);
             result += template;
           }
 
